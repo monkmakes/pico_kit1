@@ -1,8 +1,11 @@
-from machine import Pin, Timer
+from machine import Pin
+from utime import sleep
 
 led = Pin(16, Pin.OUT)
 
-def tick(timer):
-    led.toggle()
-
-Timer().init(freq=2, callback=tick) # call tick twice a sec
+while True:
+    led.on()
+    sleep(0.5) # pause
+    led.off()
+    sleep(0.5)
+    
